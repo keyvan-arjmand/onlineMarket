@@ -1,0 +1,126 @@
+﻿@using Application.Common.Utilities
+@using Domain.Entities.Orders
+@using Domain.Enums
+@{
+    List<Order> ords = ViewBag.Orders;
+}
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="card">
+        <div class="d-flex justify-content-between">
+            <form asp-action="Orders" asp-controller="Admin" class="input-group  w-25" style="height: 40px;
+                 margin: 18px 26px 0px 0px;direction: ltr">
+                <input type="text" class="form-control" name="search" placeholder=""
+                       aria-label="Example text with button addon"
+                       aria-describedby="button-addon1">
+                <button class="btn btn-outline-primary" type="submit" id="button-addon1">جستجو</button>
+
+            </form>
+            <h5 class="card-header">سفارشات</h5>
+        </div>
+
+        <div class="table-responsive text-nowrap">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>نام</th>
+                    <th>کد سفارش</th>
+                    <th>شماره تماس</th>
+                    <th>تعداد</th>
+                    <th>مبلغ</th>
+                    <th>وضعیت سفارش</th>
+                    <th>عملیات</th>
+                </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                @foreach (var i in ords)
+                {
+                    <tr>
+
+                        <td>
+                            <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>@i.FullName</strong>
+                        </td>
+                        <td><span class="badge bg-label-primary me-1"> @i.TrackingCode</span></td>
+                        <td>
+                            <span class=" me-1">@i.PhoneNumber</span>
+                        </td>
+                        <td>
+                            <span class=" me-1">@i.OrderItems.Count</span>
+                        </td>
+                        <td>
+                            <span class=" me-1">@i.FinalPrice.ToString("N0")</span>
+                        </td>
+                        <td>
+                            @switch (i.OrderStatus)
+                            {
+                                case OrderStatus.PendingPayment:
+                                    <span class="badge bg-label-secondary me-1">@i.OrderStatus.ToDescription()</span>
+
+                                    break;
+                                case OrderStatus.Paid:
+                                    <span class="badge bg-label-success me-1">@i.OrderStatus.ToDescription()</span>
+
+                                    break;
+                                case OrderStatus.Processing:
+                                    <span class="badge bg-label-secondary me-1">@i.OrderStatus.ToDescription()</span>
+
+                                    break;
+                                case OrderStatus.Preparing:
+                                    <span class="badge bg-label-info me-1">@i.OrderStatus.ToDescription()</span>
+
+                                    break;
+                                case OrderStatus.ReadyToShip:
+                                    <span class="badge bg-label-info me-1">@i.OrderStatus.ToDescription()</span>
+
+                                    break;
+                                case OrderStatus.Shipped:
+                                    <span class="badge bg-label-info me-1">@i.OrderStatus.ToDescription()</span>
+
+                                    break;
+                                case OrderStatus.Delivered:
+                                    <span class="badge bg-label-success me-1">@i.OrderStatus.ToDescription()</span>
+
+                                    break;
+                                case OrderStatus.Cancelled:
+                                    <span class="badge bg-label-danger me-1">@i.OrderStatus.ToDescription()</span>
+
+                                    break;
+                                case OrderStatus.Returned:
+                                    <span class="badge bg-label-danger me-1">@i.OrderStatus.ToDescription()</span>
+
+                                    break;
+                                case OrderStatus.Refunded:
+                                    <span class="badge bg-label-danger me-1">@i.OrderStatus.ToDescription()</span>
+
+                                    break;
+                                case OrderStatus.Failed:
+                                    <span class="badge bg-label-danger me-1">@i.OrderStatus.ToDescription()</span>
+
+                                    break;
+                                default:
+                                    throw new ArgumentOutOfRangeException();
+                            }
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                        data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="@Url.Action("OrderInfo", "Admin", new {id = i.Id})">
+                                        <i
+                                            class="bx bx-edit-alt me-1"></i> ویرایش</a>
+                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                                        حذف</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

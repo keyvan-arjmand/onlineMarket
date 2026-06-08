@@ -1,0 +1,255 @@
+﻿@using Domain.Entities.Products
+@{
+    List<Product> products = ViewBag.Prods;
+    List<Category> cats = ViewBag.Cats;
+}
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="card">
+        <div class="d-flex justify-content-between">
+            <div class="w-100">
+                <form asp-action="Products" asp-controller="Admin" class="input-group  w-25" style="height: 40px;
+                 margin: 18px 26px 0px 0px;direction: ltr">
+                    <input type="text" class="form-control" name="search" placeholder=""
+                           aria-label="Example text with button addon"
+                           aria-describedby="button-addon1">
+                    <button class="btn btn-outline-primary" type="submit" id="button-addon1">جستجو</button>
+
+                </form>
+            </div>
+            <div>
+                <button type="button" class="btn btn-success"
+                        data-bs-toggle="modal"
+                        data-bs-target="#InsertModal">افزودن
+                </button>
+            </div>
+        </div>
+        <div class="table-responsive text-nowrap">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>نام</th>
+                    <th>کد محصول</th>
+                    <th>عکس</th>
+                    <th>تعداد</th>
+                    <th>دسته بندی</th>
+                    <th>عملیات</th>
+                </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                @foreach (var i in products)
+                {
+                    <tr onclick="openEditModal(@i.Id, '@i.Name', '@i.Code', '@i.Desc', @i.Price, @i.Quantity,@i.CategoryId)">
+
+                        <td>
+                            <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>@i.Name</strong>
+                        </td>
+                        <td>
+                            <span class="badge bg-label-primary me-1">@i.Code</span>
+
+                        </td>
+                        <td>
+                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                                    class="avatar avatar-xs pull-up" title="" data-bs-original-title="@i.Name">
+                                    <img src="~/image/prods/@i.ImageUrl" alt="Avatar" class="rounded-circle">
+                                </li>
+
+                            </ul>
+                        </td>
+                        <td>
+                            <span class="badge bg-label-info me-1">@i.Quantity</span>
+                        </td>
+                        <td>
+                            <span class="badge bg-label-secondary me-1">@i.Category.Title</span>
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                        data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal"
+                                       data-bs-target="#UpdateModal">
+                                        <i
+                                            class="bx bx-edit-alt me-1"></i> ویرایش</a>
+                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
+                                        حذف</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal fade" id="InsertModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+
+            <form class="mb-3" method="POST" asp-action="InsertProduct" asp-controller="Admin"
+                  enctype="multipart/form-data">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">ویرایش محصول</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <!-- ID -->
+                        <input type="hidden" id="productId1" name="Id"/>
+
+                        <!-- Name -->
+                        <div class="mb-3">
+                            <label class="form-label">نام محصول</label>
+                            <input type="text" id="name1" name="Name" class="form-control"/>
+                        </div>
+
+                        <!-- Code -->
+                        <div class="mb-3">
+                            <label class="form-label">کد محصول</label>
+                            <input type="text" id="code1" name="Code" class="form-control"/>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="mb-3">
+                            <label class="form-label">توضیحات</label>
+                            <textarea id="desc1" name="Desc" class="form-control" rows="3"></textarea>
+                        </div>
+
+                        <!-- ImageUrl -->
+                        <div class="mb-3">
+                            <label class="form-label">لینک تصویر</label>
+                            <input type="file" id="imageUrl1" name="ImageUrl" class="form-control"/>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="mb-3">
+                            <label class="form-label">قیمت</label>
+                            <input type="number" id="price1" name="Price" class="form-control"/>
+                        </div>
+
+                        <!-- Quantity -->
+                        <div class="mb-3">
+                            <label class="form-label">تعداد</label>
+                            <input type="number" id="quantity1" name="Quantity" class="form-control"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="timeZones" class="form-label">دسته بندی</label>
+                            <select id="timeZones1" class="select2 form-select" name="CategoryId">
+                                <option value="" selected="selected">انتخاب</option>
+                                @foreach (var i in cats)
+                                {
+                                    <option value="@i.Id">@i.Title</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">بستن</button>
+                        <button type="submit" class="btn btn-primary">ذخیره</button>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="UpdateModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+
+            <form class="mb-3"
+                  method="POST"
+                  asp-action="UpdateProduct"
+                  asp-controller="Admin"
+                  enctype="multipart/form-data">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">ویرایش محصول</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <!-- ID -->
+                        <input type="hidden" id="productId" name="Id"/>
+
+                        <!-- Name -->
+                        <div class="mb-3">
+                            <label class="form-label">نام محصول</label>
+                            <input type="text" id="name" name="Name" class="form-control"/>
+                        </div>
+
+                        <!-- Code -->
+                        <div class="mb-3">
+                            <label class="form-label">کد محصول</label>
+                            <input type="text" id="code" name="Code" class="form-control"/>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="mb-3">
+                            <label class="form-label">توضیحات</label>
+                            <textarea id="desc" name="Desc" class="form-control" rows="3"></textarea>
+                        </div>
+
+                        <!-- Image -->
+                        <div class="mb-3">
+                            <label class="form-label">تصویر جدید (اختیاری)</label>
+                            <input type="file" id="imageFile" name="ImageUrl" class="form-control"/>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="mb-3">
+                            <label class="form-label">قیمت</label>
+                            <input type="number" id="price" name="Price" class="form-control"/>
+                        </div>
+
+                        <!-- Quantity -->
+                        <div class="mb-3">
+                            <label class="form-label">تعداد</label>
+                            <input type="number" id="quantity" name="Quantity" class="form-control"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="timeZones" class="form-label">دسته بندی</label>
+                            <select id="timeZones" class="select2 form-select" name="CategoryId">
+                                @foreach (var i in cats)
+                                {
+                                    <option value="@i.Id">@i.Title</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">بستن</button>
+                        <button type="submit" class="btn btn-primary">ذخیره</button>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+<script>
+    function openEditModal(id, name, code, desc, price, quantity, catId) {
+
+        document.getElementById("productId").value = id;
+        document.getElementById("name").value = name;
+        document.getElementById("code").value = code;
+        document.getElementById("desc").value = desc;
+        document.getElementById("price").value = price;
+        document.getElementById("quantity").value = quantity;
+        document.getElementById("timeZones").value = catId;
+    }
+</script>
