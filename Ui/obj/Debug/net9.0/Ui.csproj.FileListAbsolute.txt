@@ -394,3 +394,4 @@ C:\Users\asafa\RiderProjects\Shop1\Ui\obj\Debug\net9.0\compressed\ga6zpdpgjg-0md
 C:\Users\asafa\RiderProjects\Shop1\Ui\obj\Debug\net9.0\compressed\7pfrfpufjn-1q3ae0hty3.gz
 C:\Users\asafa\RiderProjects\Shop1\Ui\obj\Debug\net9.0\compressed\2v0fibbbuk-76morslonh.gz
 C:\Users\asafa\RiderProjects\Shop1\Ui\obj\Debug\net9.0\compressed\9dy7d7upkw-ylwhizd23g.gz
+C:\Users\asafa\RiderProjects\Shop1\Ui\obj\Debug\net9.0\Ui.sourcelink.json

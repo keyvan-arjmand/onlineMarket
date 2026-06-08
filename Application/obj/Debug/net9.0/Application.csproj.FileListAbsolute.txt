@@ -13,3 +13,4 @@ C:\Users\asafa\RiderProjects\Shop1\Application\obj\Debug\net9.0\Application.dll
 C:\Users\asafa\RiderProjects\Shop1\Application\obj\Debug\net9.0\refint\Application.dll
 C:\Users\asafa\RiderProjects\Shop1\Application\obj\Debug\net9.0\Application.pdb
 C:\Users\asafa\RiderProjects\Shop1\Application\obj\Debug\net9.0\ref\Application.dll
+C:\Users\asafa\RiderProjects\Shop1\Application\obj\Debug\net9.0\Application.sourcelink.json

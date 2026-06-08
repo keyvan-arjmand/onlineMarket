@@ -3,6 +3,7 @@ using Application.Interfaces;
 using Application.Patterns.Categories.Commands.InsertCategory;
 using Application.Patterns.Categories.Commands.UpdateCategory;
 using Application.Patterns.Categories.Queries.GetAllCategory;
+using Application.Patterns.Discount.Queries;
 using Application.Patterns.Orders.Commands.StatusOrders;
 using Application.Patterns.Orders.Queries.GetAllOrders;
 using Application.Patterns.Orders.Queries.GetOrderById;
@@ -80,6 +81,15 @@ public class AdminController(
         return View();
     }
 
+    public async Task<IActionResult> Discounts(string? search)
+    {
+        ViewBag.Discount = await mediator.Send(new GetAllDiscountQuery
+        {
+            Search = search
+        });
+        return View();
+    }
+
     public async Task<IActionResult> Orders(
         string? search,
         OrderStatus? status,
@@ -148,6 +158,28 @@ public class AdminController(
     {
         await mediator.Send(new UpdateCategoryCommand(model.Id, model.Title));
         return RedirectToAction("Category");
+    }
+
+    public async Task<IActionResult> InsertDiscount(int amount, string code)
+    {
+        await unitOfWork.GenericRepository<Discount>().AddAsync(new Discount
+        {
+            Code = code,
+            Amount = amount,
+            Count = 1
+        }, CancellationToken.None);
+        return RedirectToAction("Discounts");
+    }
+
+    public async Task<IActionResult> UpdateDiscount(int id, int amount, string code)
+    {
+        var dis = await unitOfWork.GenericRepository<Discount>().Table.FirstOrDefaultAsync(x => x.Id == id);
+        if (dis == null)
+            return NotFound();
+        dis.Code = code;
+        dis.Amount = amount;
+        await unitOfWork.GenericRepository<Discount>().UpdateAsync(dis, CancellationToken.None);
+        return RedirectToAction("Discounts");
     }
 
     public async Task<IActionResult> UpdateUser(UpdateUser model)

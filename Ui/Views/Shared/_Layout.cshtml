@@ -172,7 +172,12 @@
                 <div>سفارشات</div>
               </a>
             </li>
-
+            <li class="menu-item @(controller == "Admin" && (action == "Discounts" || action == "CreateDiscount" || action == "EditDiscount") ? "active" : "")">
+              <a href="@Url.Action("Discounts","Admin")" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div>کد تخفیف</div>
+              </a>
+            </li>
             <li class="menu-item @(controller == "Admin" && (action == "Users" || action == "UserDetail" || action == "EditUser") ? "active" : "")">
               <a href="@Url.Action("Users","Admin")" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user"></i>
