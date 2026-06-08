@@ -242,6 +242,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Autofac": {
+              "target": "Package",
+              "version": "[9.1.0, )"
+            },
             "xunit.assert": {
               "target": "Package",
               "version": "[2.9.3, )"

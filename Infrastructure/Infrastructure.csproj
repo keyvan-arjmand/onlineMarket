@@ -6,6 +6,7 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
     <ItemGroup>
+        <PackageReference Include="Autofac" Version="9.1.0" />
         <PackageReference Include="xunit.assert" Version="2.9.3" />
     </ItemGroup>
     <ItemGroup>

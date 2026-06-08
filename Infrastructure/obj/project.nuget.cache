@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "hvVpG1mKlF4=",
+  "dgSpecHash": "lsnWZBogXOI=",
   "success": true,
   "projectFilePath": "C:\\Users\\asafa\\RiderProjects\\Shop1\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\asafa\\.nuget\\packages\\autofac\\9.1.0\\autofac.9.1.0.nupkg.sha512",
     "C:\\Users\\asafa\\.nuget\\packages\\automapper\\15.0.1\\automapper.15.0.1.nupkg.sha512",
     "C:\\Users\\asafa\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\asafa\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
@@ -94,7 +95,7 @@
     "C:\\Users\\asafa\\.nuget\\packages\\system.clientmodel\\1.0.0\\system.clientmodel.1.0.0.nupkg.sha512",
     "C:\\Users\\asafa\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\asafa\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.1\\system.configuration.configurationmanager.6.0.1.nupkg.sha512",
-    "C:\\Users\\asafa\\.nuget\\packages\\system.diagnostics.diagnosticsource\\8.0.1\\system.diagnostics.diagnosticsource.8.0.1.nupkg.sha512",
+    "C:\\Users\\asafa\\.nuget\\packages\\system.diagnostics.diagnosticsource\\10.0.0\\system.diagnostics.diagnosticsource.10.0.0.nupkg.sha512",
     "C:\\Users\\asafa\\.nuget\\packages\\system.formats.asn1\\9.0.9\\system.formats.asn1.9.0.9.nupkg.sha512",
     "C:\\Users\\asafa\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.35.0\\system.identitymodel.tokens.jwt.6.35.0.nupkg.sha512",
     "C:\\Users\\asafa\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",

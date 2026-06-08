@@ -9,10 +9,22 @@
       "Infrastructure/1.0.0": {
         "dependencies": {
           "Application": "1.0.0",
+          "Autofac": "9.1.0",
           "xunit.assert": "2.9.3"
         },
         "runtime": {
           "Infrastructure.dll": {}
+        }
+      },
+      "Autofac/9.1.0": {
+        "dependencies": {
+          "System.Diagnostics.DiagnosticSource": "10.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Autofac.dll": {
+            "assemblyVersion": "9.1.0.0",
+            "fileVersion": "9.1.0.0"
+          }
         }
       },
       "AutoMapper/15.0.1": {
@@ -32,7 +44,7 @@
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
           "System.ClientModel": "1.0.0",
-          "System.Diagnostics.DiagnosticSource": "8.0.1",
+          "System.Diagnostics.DiagnosticSource": "10.0.0",
           "System.Memory.Data": "1.0.2",
           "System.Numerics.Vectors": "4.5.0",
           "System.Text.Encodings.Web": "8.0.0",
@@ -263,7 +275,7 @@
           "Microsoft.Extensions.DependencyModel": "8.0.0",
           "Microsoft.Extensions.FileProviders.Abstractions": "8.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "9.0.9",
-          "System.Diagnostics.DiagnosticSource": "8.0.1",
+          "System.Diagnostics.DiagnosticSource": "10.0.0",
           "System.Threading.Tasks.Extensions": "4.6.0"
         }
       },
@@ -336,7 +348,7 @@
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.35.0",
           "Microsoft.SqlServer.Server": "1.0.0",
           "System.Configuration.ConfigurationManager": "6.0.1",
-          "System.Diagnostics.DiagnosticSource": "8.0.1",
+          "System.Diagnostics.DiagnosticSource": "10.0.0",
           "System.Runtime.Caching": "6.0.0",
           "System.Security.Cryptography.Cng": "5.0.0",
           "System.Security.Principal.Windows": "5.0.0",
@@ -706,7 +718,7 @@
       "Microsoft.Identity.Client/4.61.3": {
         "dependencies": {
           "Microsoft.IdentityModel.Abstractions": "8.0.1",
-          "System.Diagnostics.DiagnosticSource": "8.0.1"
+          "System.Diagnostics.DiagnosticSource": "10.0.0"
         },
         "runtime": {
           "lib/net6.0/Microsoft.Identity.Client.dll": {
@@ -934,7 +946,14 @@
           }
         }
       },
-      "System.Diagnostics.DiagnosticSource/8.0.1": {},
+      "System.Diagnostics.DiagnosticSource/10.0.0": {
+        "runtime": {
+          "lib/net9.0/System.Diagnostics.DiagnosticSource.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.25.52411"
+          }
+        }
+      },
       "System.Formats.Asn1/9.0.9": {},
       "System.IdentityModel.Tokens.Jwt/6.35.0": {
         "dependencies": {
@@ -1128,6 +1147,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Autofac/9.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-onT/BcnnfWcQNXiuC7R/0h8ALQzRdsAI20gpB7nfrudXpFMXdVZKz1umdtHXDwjc/bmWEsrCBAxck3+Arnk15g==",
+      "path": "autofac/9.1.0",
+      "hashPath": "autofac.9.1.0.nupkg.sha512"
     },
     "AutoMapper/15.0.1": {
       "type": "package",
@@ -1759,12 +1785,12 @@
       "path": "system.configuration.configurationmanager/6.0.1",
       "hashPath": "system.configuration.configurationmanager.6.0.1.nupkg.sha512"
     },
-    "System.Diagnostics.DiagnosticSource/8.0.1": {
+    "System.Diagnostics.DiagnosticSource/10.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-vaoWjvkG1aenR2XdjaVivlCV9fADfgyhW5bZtXT23qaEea0lWiUljdQuze4E31vKM7ZWJaSUsbYIKE3rnzfZUg==",
-      "path": "system.diagnostics.diagnosticsource/8.0.1",
-      "hashPath": "system.diagnostics.diagnosticsource.8.0.1.nupkg.sha512"
+      "sha512": "sha512-0KdBK+h7G13PuOSC2R/DalAoFMvdYMznvGRuICtkdcUMXgl/gYXsG6z4yUvTxHSMACorWgHCU1Faq0KUHU6yAQ==",
+      "path": "system.diagnostics.diagnosticsource/10.0.0",
+      "hashPath": "system.diagnostics.diagnosticsource.10.0.0.nupkg.sha512"
     },
     "System.Formats.Asn1/9.0.9": {
       "type": "package",

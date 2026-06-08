@@ -2,6 +2,22 @@
   "version": 3,
   "targets": {
     "net9.0": {
+      "Autofac/9.1.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Diagnostics.DiagnosticSource": "10.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Autofac.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Autofac.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "AutoMapper/15.0.1": {
         "type": "package",
         "dependencies": {
@@ -1633,20 +1649,20 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "System.Diagnostics.DiagnosticSource/8.0.1": {
+      "System.Diagnostics.DiagnosticSource/10.0.0": {
         "type": "package",
         "compile": {
-          "lib/net8.0/System.Diagnostics.DiagnosticSource.dll": {
+          "lib/net9.0/System.Diagnostics.DiagnosticSource.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/System.Diagnostics.DiagnosticSource.dll": {
+          "lib/net9.0/System.Diagnostics.DiagnosticSource.dll": {
             "related": ".xml"
           }
         },
         "build": {
-          "buildTransitive/net6.0/_._": {}
+          "buildTransitive/net8.0/_._": {}
         }
       },
       "System.Formats.Asn1/9.0.9": {
@@ -2112,6 +2128,27 @@
     }
   },
   "libraries": {
+    "Autofac/9.1.0": {
+      "sha512": "onT/BcnnfWcQNXiuC7R/0h8ALQzRdsAI20gpB7nfrudXpFMXdVZKz1umdtHXDwjc/bmWEsrCBAxck3+Arnk15g==",
+      "type": "package",
+      "path": "autofac/9.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "autofac.9.1.0.nupkg.sha512",
+        "autofac.nuspec",
+        "icon.png",
+        "lib/net10.0/Autofac.dll",
+        "lib/net10.0/Autofac.xml",
+        "lib/net8.0/Autofac.dll",
+        "lib/net8.0/Autofac.xml",
+        "lib/netstandard2.0/Autofac.dll",
+        "lib/netstandard2.0/Autofac.xml",
+        "lib/netstandard2.1/Autofac.dll",
+        "lib/netstandard2.1/Autofac.xml"
+      ]
+    },
     "AutoMapper/15.0.1": {
       "sha512": "kNo7iIAi4p4XxoEbfif2WUQtc6RTx+UteiRYPqCOKj+4q4+YaWono06qTxoHBy+0N1HdganA//k5p/VmWw2AMA==",
       "type": "package",
@@ -4130,31 +4167,30 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "System.Diagnostics.DiagnosticSource/8.0.1": {
-      "sha512": "vaoWjvkG1aenR2XdjaVivlCV9fADfgyhW5bZtXT23qaEea0lWiUljdQuze4E31vKM7ZWJaSUsbYIKE3rnzfZUg==",
+    "System.Diagnostics.DiagnosticSource/10.0.0": {
+      "sha512": "0KdBK+h7G13PuOSC2R/DalAoFMvdYMznvGRuICtkdcUMXgl/gYXsG6z4yUvTxHSMACorWgHCU1Faq0KUHU6yAQ==",
       "type": "package",
-      "path": "system.diagnostics.diagnosticsource/8.0.1",
+      "path": "system.diagnostics.diagnosticsource/10.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/net461/System.Diagnostics.DiagnosticSource.targets",
         "buildTransitive/net462/_._",
-        "buildTransitive/net6.0/_._",
+        "buildTransitive/net8.0/_._",
         "buildTransitive/netcoreapp2.0/System.Diagnostics.DiagnosticSource.targets",
+        "lib/net10.0/System.Diagnostics.DiagnosticSource.dll",
+        "lib/net10.0/System.Diagnostics.DiagnosticSource.xml",
         "lib/net462/System.Diagnostics.DiagnosticSource.dll",
         "lib/net462/System.Diagnostics.DiagnosticSource.xml",
-        "lib/net6.0/System.Diagnostics.DiagnosticSource.dll",
-        "lib/net6.0/System.Diagnostics.DiagnosticSource.xml",
-        "lib/net7.0/System.Diagnostics.DiagnosticSource.dll",
-        "lib/net7.0/System.Diagnostics.DiagnosticSource.xml",
         "lib/net8.0/System.Diagnostics.DiagnosticSource.dll",
         "lib/net8.0/System.Diagnostics.DiagnosticSource.xml",
+        "lib/net9.0/System.Diagnostics.DiagnosticSource.dll",
+        "lib/net9.0/System.Diagnostics.DiagnosticSource.xml",
         "lib/netstandard2.0/System.Diagnostics.DiagnosticSource.dll",
         "lib/netstandard2.0/System.Diagnostics.DiagnosticSource.xml",
-        "system.diagnostics.diagnosticsource.8.0.1.nupkg.sha512",
+        "system.diagnostics.diagnosticsource.10.0.0.nupkg.sha512",
         "system.diagnostics.diagnosticsource.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -4997,6 +5033,7 @@
   "projectFileDependencyGroups": {
     "net9.0": [
       "Application >= 1.0.0",
+      "Autofac >= 9.1.0",
       "xunit.assert >= 2.9.3"
     ]
   },
@@ -5049,6 +5086,10 @@
       "net9.0": {
         "targetAlias": "net9.0",
         "dependencies": {
+          "Autofac": {
+            "target": "Package",
+            "version": "[9.1.0, )"
+          },
           "xunit.assert": {
             "target": "Package",
             "version": "[2.9.3, )"
