@@ -47,7 +47,7 @@ public class AdminController(
     {
         ViewBag.orderInfo = await mediator.Send(new GetOrderByIdQuery
         {
-            Id = id
+             Id = id
         });
         return View();
     }
